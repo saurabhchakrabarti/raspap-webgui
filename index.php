@@ -45,6 +45,7 @@ require_once 'includes/themes.php';
 require_once 'includes/data_usage.php';
 require_once 'includes/about.php';
 require_once 'includes/openvpn.php';
+require_once 'includes/nebula.php';
 require_once 'includes/torproxy.php';
 
 $config = getConfig();
@@ -163,6 +164,11 @@ $bridgedEnabled = getBridgedState();
           <a class="nav-link" href="openvpn_conf"><i class="fas fa-key fa-fw mr-2"></i><span class="nav-label"><?php echo _("OpenVPN"); ?></a>
         </li>
           <?php endif; ?>
+          <?php if (RASPI_NEBULA_ENABLED) : ?>
+        <li class="nav-item">
+          <a class="nav-link" href="nebula_conf"><i class="fas fa-key fa-fw mr-2"></i><span class="nav-label"><?php echo _("Nebula"); ?></a>
+        </li>
+          <?php endif; ?>
           <?php if (RASPI_TORPROXY_ENABLED) : ?>
         <li class="nav-item">
            <a class="nav-link" href="torproxy_conf"><i class="fas fa-eye-slash fa-fw mr-2"></i><span class="nav-label"><?php echo _("TOR proxy"); ?></a>
@@ -253,6 +259,9 @@ $bridgedEnabled = getBridgedState();
             break;
         case "/openvpn_conf":
             DisplayOpenVPNConfig();
+            break;
+        case "/nebula_conf":
+            DisplayNebulaConfig();
             break;
         case "/torproxy_conf":
             DisplayTorProxyConfig();

@@ -396,6 +396,8 @@ function _install_openvpn() {
     _create_openvpn_scripts || _install_status 1 "Unable to create openvpn control scripts"
 }
 
+#TODO Install Nebula
+
 # Generate openvpn logging and auth control scripts
 function _create_openvpn_scripts() {
     _install_log "Creating OpenVPN control scripts"
